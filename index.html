@@ -9,7 +9,9 @@
 <body>
 <script>
 	var game = new Phaser.Game(480, 320, Phaser.AUTO, null, {
-		preload: preload, create: create, update: update
+		preload: preload,
+		create: create,
+		update: update
 	});
 
 	var ball;
@@ -26,7 +28,12 @@
 		ball = game.add.sprite(50, 50, 'ball');
 	};
 
-	function update() {};
+	// Update the ball's position on each frame
+	function update() {
+		ball.x += 1;
+		ball.y += 1;
+	};
+
 </script>
 </body>
 </html>
