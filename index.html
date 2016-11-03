@@ -37,10 +37,20 @@
 		ball.body.collideWorldBounds = true; // stop at edge of screen
 		ball.body.bounce.set(1);
 
+		game.physics.arcade.checkCollision.down = false;
+		ball.checkWorldBounds = true;
+
+		// How to lose
+		ball.events.onOutOfBounds.add(function() {
+			alert('Game over!');
+			location.reload();
+		}, this);
+
 		paddle = game.add.sprite(game.world.width*0.5, game.world.height-5, 'paddle');
 		paddle.anchor.set(0.5, 1);
 		game.physics.enable(paddle, Phaser.Physics.ARCADE);
 		paddle.body.immovable = true;
+
 	};
 
 	function update() {
